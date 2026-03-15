@@ -23,11 +23,11 @@ processing every single frame.
 
 Not every frame is high quality. Haze uses a two-stage filter:
 
--   **Visibility Gate**\
+- **Visibility Gate**\
     Discards frames where key landmarks (ankles, hips, shoulders) have a
     visibility score below `0.7`.
 
--   **Z-Axis Alignment Gating**\
+- **Z-Axis Alignment Gating**\
     To prevent rotational distortion, the system checks the Z-depth of
     the shoulders. If the subject is not facing the camera squarely
     (shoulder Z-diff \> `0.05`), the frame is discarded.
@@ -39,15 +39,15 @@ significantly narrower than the physical body.
 
 Haze implements:
 
--   **Anatomical Padding**\
+- **Anatomical Padding**\
     Adds precise offsets (`+11cm` for shoulders, `+14cm` for hips) to
     account for deltoids, lats, and soft tissue.
 
--   **Anatomical Scaling**\
+- **Anatomical Scaling**\
     Maps the **Eye-to-Ankle span as 88% of total height**, ensuring the
     centimeter-to-pixel ratio reflects real human proportions.
 
--   **Ellipse Complexity**\
+- **Ellipse Complexity**\
     Uses **Ramanujan's First Approximation** for ellipse circumferences
     rather than simple circular math.
 
@@ -63,11 +63,11 @@ result is stable.
 
 # 🛠️ Technology Stack
 
--   **Framework:** FastAPI\
--   **Computer Vision:** OpenCV (`cv2`)\
--   **AI Inference:** MediaPipe (BlazePose GH)\
--   **Math/Data:** NumPy\
--   **Validation:** Pydantic
+- **Framework:** FastAPI\
+- **Computer Vision:** OpenCV (`cv2`)\
+- **AI Inference:** MediaPipe (BlazePose GH)\
+- **Math/Data:** NumPy\
+- **Validation:** Pydantic
 
 ------------------------------------------------------------------------
 
@@ -113,11 +113,11 @@ Interactive documentation:
 
 For the most accurate results, users should follow these guidelines:
 
--   **Clothing:** Wear form-fitting or athletic gear. Baggy clothing
+- **Clothing:** Wear form-fitting or athletic gear. Baggy clothing
     will cause measurement inflation.
--   **Posturing:** Stand in an **A-Pose** facing the camera directly.
--   **Framing:** Ensure the full body (head to toe) is visible.
--   **Environment:** Use a well-lit area with a plain background.
+- **Posturing:** Stand in an **A-Pose** facing the camera directly.
+- **Framing:** Ensure the full body (head to toe) is visible.
+- **Environment:** Use a well-lit area with a plain background.
 
 ------------------------------------------------------------------------
 
