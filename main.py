@@ -8,6 +8,7 @@ import cv2
 import mediapipe as mp
 import numpy as np
 from fastapi import FastAPI, File, UploadFile, HTTPException
+from fastapi.responses import RedirectResponse
 from pydantic import BaseModel, Field
 
 class MeasurementResult(BaseModel):
@@ -29,6 +30,10 @@ app = FastAPI(
     ),
     version="0.1.0",
 )
+
+@app.get("/", include_in_schema=False)
+def root_redirect():
+    return RedirectResponse(url="/docs")
 
 ALLOWED_EXTENSIONS = {".mp4", ".mov", ".avi", ".mkv", ".webm", ".jpg", ".jpeg", ".png"}
 IMAGE_EXTENSIONS   = {".jpg", ".jpeg", ".png"}
